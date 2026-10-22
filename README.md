@@ -3,8 +3,12 @@
 # Gradientfy — 207 Live GPU Gradients, Interactive Studio & Exporter
 
 <p align="center">
-  <strong>WebGPU & WebGL2 destekli, OKLab renk alanında pürüzsüz enterpolasyonlu, 22 parametrik gölgelendirici ve 15 optik koleksiyondan oluşan yeni nesil görsel motoru.</strong><br>
-  <em>Canlı 60 FPS gölgelendiriciler, interaktif stüdyo editörü, Cursor Warp dinamikleri ve 8K'ya varan kayıpsız çoklu format dışa aktarım desteği.</em>
+  <a href="README.tr.md">🇹🇷 Türkçe</a> • <b>🇺🇸 English</b>
+</p>
+
+<p align="center">
+  <strong>Next-generation visual engine powered by WebGPU & WebGL2, featuring smooth OKLab color space interpolation, 22 parametric shaders, and 15 optical collections.</strong><br>
+  <em>Live 60 FPS shaders, interactive studio editor, Cursor Warp dynamics, and lossless multi-format export up to 8K.</em>
 </p>
 
 <p align="center">
@@ -21,187 +25,186 @@
 
 <br>
 
-> **Gradientfy**, modern web ve dijital tasarım dünyasında statik CSS gradyanlarının sınırlarını yıkan açık kaynaklı, GPU hızlandırmalı bir gradyan ekosistemidir. 22 farklı matematiksel ve optik gölgelendirici modeli, 207 kalibre edilmiş preset ve tam donanımlı stüdyo editörüyle; arka planları canlı birer dijital sanat eserine dönüştürür ve tek tıkla React, CSS veya 8K görsel/video olarak dışa aktarmanızı sağlar.
+> **Gradientfy** is an open-source, GPU-accelerated gradient ecosystem that breaks the boundaries of static CSS gradients in modern web and digital design. With 22 distinct mathematical and optical shader models, 207 calibrated presets, and a fully featured studio editor, it transforms backgrounds into living digital artworks and lets you export them to React, CSS, or 8K images/videos with a single click.
 
-[Hızlı Başlangıç](#hızlı-başlangıç--kurulum) • [Özellikler](#özellikler-features) • [22 GPU Gölgelendirici](#22-gpu-gölgelendirici-modeli) • [Stüdyo Editörü](#stüdyo-editörü-studio-view) • [Dışa Aktarım (Export)](#çoklu-çözünürlük-ve-format-dışa-aktarımı) • [English Overview](#english-overview)
+[Quick Start](#quick-start--installation) • [Features](#features) • [22 GPU Shader Models](#22-gpu-shader-models) • [Studio View](#studio-editor-studio-view) • [Export Options](#multi-resolution-and-format-export) • [Architecture](#architecture--how-it-works)
 
 <br>
 
 <div align="center">
   <img src="docs/assets/hero-catalog.png" width="94%" alt="Gradientfy 207 Presets Catalog View" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-  <p align="center"><em>▲ 207 kalibre edilmiş gradyan, 15 koleksiyon filtresi, hızlı arama ve canlı GPU önizleme kartları</em></p>
+  <p align="center"><em>▲ 207 calibrated gradients, 15 collection filters, quick search, and live GPU preview cards</em></p>
 </div>
 
 ---
 
 </div>
 
-## İçindekiler (Table of Contents)
+## Table of Contents
 
-- [Proje Vizyonu](#proje-vizyonu)
-- [Özellikler (Features)](#özellikler-features)
-- [22 GPU Gölgelendirici Modeli](#22-gpu-gölgelendirici-modeli)
-- [Stüdyo Editörü (Studio View)](#stüdyo-editörü-studio-view)
-- [Çoklu Çözünürlük ve Format Dışa Aktarımı](#çoklu-çözünürlük-ve-format-dışa-aktarımı)
-- [15 Küratörlü Koleksiyon Arşivi](#15-küratörlü-koleksiyon-arşivi)
-- [Mimari & Çalışma Prensibi](#mimari--çalışma-prensibi)
-- [Hızlı Başlangıç & Kurulum](#hızlı-başlangıç--kurulum)
-- [Klavye Kısayolları](#klavye-kısayolları)
-- [Sıkça Sorulan Sorular (FAQ)](#sıkça-sorulan-sorular-faq)
-- [English Overview](#english-overview)
-- [Lisans & Yazar](#lisans--yazar)
-
----
-
-## Proje Vizyonu
-
-Geleneksel web sitelerindeki gradyanlar ya düşük çözünürlüklü statik görsellerden ibarettir ya da CSS `linear-gradient` / `radial-gradient` komutlarıyla sınırlıdır. Bu durum sRGB renk uzayında soluk ara tonlara ("gri ölü bölge") ve sıfır hareket dinamiğine yol açar.
-
-**Gradientfy**, bu paradigmayı kökten değiştirir:
-1. **Perceptual OKLab Renk Uzayı:** Tüm renk geçişleri insan gözünün algısına göre tasarlanan OKLab uzayında hesaplanır; hiçbir solma veya çamurlaşma yaşanmaz.
-2. **WebGPU & WebGL2 Hibrit Render Motoru:** Tarayıcınızın donanım hızlandırmasını kullanarak 60 FPS hızında akışkan fizik ve dalga formülleri çalıştırır.
-3. **Pikseli Pikseline Canlı Senkronizasyon:** Önizleme kartları durağan $t=0$ anından live canvas akışına sıçramasız (zero-jump) geçer.
-4. **Kod Olarak Teslimat:** Beğendiğiniz herhangi bir gradyanı doğrudan shadcn uyumlu React bileşeni, CSS animasyonu veya 4K/8K kayıpsız medya olarak projelerinize dahil edebilirsiniz.
+- [Project Vision](#project-vision)
+- [Features](#features)
+- [22 GPU Shader Models](#22-gpu-shader-models)
+- [Studio Editor (Studio View)](#studio-editor-studio-view)
+- [Multi-Resolution and Format Export](#multi-resolution-and-format-export)
+- [15 Curated Collections Archive](#15-curated-collections-archive)
+- [Architecture & How It Works](#architecture--how-it-works)
+- [Quick Start & Installation](#quick-start--installation)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [License & Author](#license--author)
 
 ---
 
-## Özellikler (Features)
+## Project Vision
 
-- **207 Yüksek Kalibreli Önayar (Presets):**
-  - Karanlık, aydınlık, monokrom, pastel ve neon ton seçenekleri.
-  - Canlı kart üzerine gelindiğinde (hover) sıfır gecikmeli akıcı animasyon başlatma.
-- **22 Matematiksel Shader Modeli:**
-  - Kutuplardan ilham alan Auroralar, ipek kumaş kırışıklıkları (Silk), foton ışık huzmeleri (Beam), retro Bayer tramlamaları (Dither) ve sıvı krom yansımaları.
-- **Canlı Stüdyo Editörü:**
-  - Renk durakları (color stops) ekleme/çıkarma ve renk teorisine dayalı (Harmonic Palette) tek tıkla palet oluşturucu.
-  - Hız, ölçek, bükülme (warp), gren (film grain) ve blur ayarları.
-  - 16:9, 9:16, 1:1, 3:1 ve Full ekran en-boy oranı çerçeveleme seçenekleri.
-  - Sınırlı ve hassas **Cursor Warp** fare etkileşimi.
-  - Sınırsız **Geri Al / İleri Al (Undo / Redo)** geçmiş takibi.
-  - Sayfa yenilendiğinde (F5) son seçilen gradyanı ve yapılan değişiklikleri hafızada tutan oturum yönetimi.
-- **Çoklu Çözünürlük ve Format Dışa Aktarımı:**
-  - **Görsel:** 4K UHD, 2K QHD, Full HD, Ultrawide, MacBook 16", iPhone 15 Pro Max ve iPad Pro boyutlarında PNG, JPG, WebP ve saf vektörel SVG.
-  - **Animasyon & Video:** Döngüsel 60 FPS WebM ve MP4 video çıktısı, hareketli GIF.
-  - **Geliştirici Kodları:** Standart CSS3 animasyon kodu, JSX / TSX React bileşen şablonu, URL paylaşım bağlantısı.
+Traditional web gradients are often limited to low-resolution static image files or basic CSS `linear-gradient` / `radial-gradient` declarations. This results in dull intermediate tones ("gray dead zone") in sRGB color space and zero dynamic motion.
+
+**Gradientfy** fundamentally changes this paradigm:
+1. **Perceptual OKLab Color Space:** All color transitions are calculated within OKLab color space tailored to human visual perception; preventing any muddiness, desaturation, or dullness.
+2. **WebGPU & WebGL2 Hybrid Render Engine:** Executes fluid physics and wave equations at 60 FPS utilizing your browser's hardware acceleration.
+3. **Pixel-Perfect Live Synchronization:** Preview cards transition seamlessly (zero-jump) from static $t=0$ snapshots into active live canvas streams on hover.
+4. **Delivered as Code:** Export any gradient directly into shadcn-compatible React components, CSS animations, or 4K/8K lossless media for your projects.
 
 ---
 
-## 22 GPU Gölgelendirici Modeli
+## Features
 
-Gradientfy çekirdeğinde 22 farklı WGSL/GLSL gölgelendirici algoritması barındırır:
+- **207 Highly Calibrated Presets:**
+  - Dark, light, monochrome, pastel, and neon color palettes.
+  - Zero-latency smooth animation kickoff upon hovering over preview cards.
+- **22 Mathematical Shader Models:**
+  - Polar-inspired Auroras, delicate silk cloth folds (Silk), photonic light beams (Beam), retro Bayer half-tone dithering (Dither), and liquid chrome reflections.
+- **Live Studio Editor:**
+  - Add/remove color stops and generate harmonious palettes with a single click using color theory (Harmonic Palette).
+  - Fine-tune speed, scale, warp, film grain, and blur settings.
+  - Framing aspect ratios: 16:9, 9:16, 1:1, 3:1, and Full Screen.
+  - Constrained and responsive **Cursor Warp** mouse dynamics.
+  - Unlimited **Undo / Redo** history tracking.
+  - Session state persistence retaining the selected gradient and modifications across browser refreshes (F5).
+- **Multi-Resolution and Format Export:**
+  - **Images:** 4K UHD, 2K QHD, Full HD, Ultrawide, MacBook 16", iPhone 15 Pro Max, and iPad Pro presets in PNG, JPG, WebP, and pure vector SVG.
+  - **Animation & Video:** Seamless looping 60 FPS WebM and MP4 video output, animated GIF.
+  - **Developer Code:** Standard CSS3 keyframe animations, JSX / TSX React component templates, and shareable URL links.
 
-| Shader Türü | Algoritma ve Karakteristik | İdeal Kullanım Alanı |
+---
+
+## 22 GPU Shader Models
+
+At its core, Gradientfy incorporates 22 different WGSL/GLSL shader algorithms:
+
+| Shader Type | Algorithm & Characteristics | Ideal Use Case |
 | :--- | :--- | :--- |
-| **Aurora** | Kutup ışıkları dikey katlanma ve perdeleme dalgaları | Atmosferik kahraman (hero) bölümleri |
-| **Beam** | Köşeden fırlayan yüksek enerjili konik ışık huzmeleri | Vurgu alanları, fütüristik arayüzler |
-| **Chrome** | Sıvı metal yansımaları ve keskin speküler parlaklıklar | Premium lüks markalar, teknoloji sayfaları |
-| **Dither Field** | Klasik retro Bayer matrisi piksel yarı-ton dither tramı | Cyberpunk, nostaljik ve lofi tasarımlar |
-| **Dither Burst** | Merkezkaç dairesel dağılan 8-bit dither parçacıkları | Etkileşimli buton arkaları, patlama efektleri |
-| **Fluted** | Yivli mimari cam arkasından süzülen optik kırılmalar | Minimalist mimari ve lüks portfolyolar |
-| **Grain** | Ağır analog 35mm film greni ve yumuşak mikser | Organik, editoryal ve sanatsal projeler |
-| **Halo** | Atmosferik halka kırılmaları ve yumuşak korona ışıması | Yumuşak aydınlatmalar, odak merkezleri |
-| **Horizon** | Ufuk çizgisi üzerine doğan astronomik renk geçişleri | Manzara ve dingin karşılama ekranları |
-| **Limb** | Gezegen atmosferinin karanlık uzay sınırındaki yay çizgisi | Uzay ve derin karanlık temalar |
-| **Linear Flow** | Yumuşak tek eksenli akış ve renk difüzyonu | Temiz SaaS açılış sayfaları |
-| **Mesh** | Çok düğümlü ve serbest deformasyonlu mesh gradyan | Modern web uygulamaları, dashboard arka planları |
-| **Mist** | Yoğun sis katmanları ve düşük kontrastlı hacimsel ışık | Gizemli ve hafif arka planlar |
-| **Pixel Glass** | Mozaik cam arkasından geçen optik piksellenme | Dijital soyut sanat |
-| **Radial Glow** | Güçlü radyal ışık saçılımı ve enerji noktaları | Buton parlamaları, dikkat çekici alanlar |
-| **Ribbon** | 3D uzayda süzülen çift yüzeyli ipeksi şerit dalgaları | Akışkan ve modern yaratıcı portfolyolar |
-| **Rise** | Taban plakasından yükselen termal sıcaklık gradyanı | Enerjik ve modern ürün tanıtımları |
-| **Silk** | Koyu zemin üzerine dökülen saten kumaş katlanmaları | Moda, lifestyle ve premium landing pageler |
-| **Smear** | Uzun pozlama fırça darbesi ve optik renk kayması | Dinamik ve cesur tasarım dilleri |
-| **Spectrum** | Prizmatik ışık kırılması ve gökkuşağı dalgaboyları | Yaratıcı tasarım stüdyoları |
-| **Swirl** | Merkezkaç akışkan girdap ve sıvı dinamiği | Hipnotik ve dikkat çekici görsel şovlar |
-| **Void** | Derin kozmik boşluk ve çekim merkezi emilimi | Minimalist koyu mod temalar |
+| **Aurora** | Polar lights vertical folding and curtain wave dynamics | Atmospheric hero sections |
+| **Beam** | High-energy conical beams radiating from corners | Accent areas, futuristic interfaces |
+| **Chrome** | Liquid metal specular reflections and sharp highlights | Premium luxury brands, tech showcases |
+| **Dither Field** | Classic retro Bayer matrix pixel half-tone dithering | Cyberpunk, nostalgic, and lofi designs |
+| **Dither Burst** | Centrifugal circularly dispersing 8-bit dither particles | Interactive button backdrops, burst effects |
+| **Fluted** | Optical refractions through fluted architectural glass | Minimalist architecture and luxury portfolios |
+| **Grain** | Heavy analog 35mm film grain and soft blending | Organic, editorial, and artistic projects |
+| **Halo** | Atmospheric ring refractions and soft corona glow | Soft ambient lighting, focal centerpieces |
+| **Horizon** | Astronomical color horizons breaking across the edge | Scenery, calm entry screens, landscapes |
+| **Limb** | Planetary atmospheric crescent edge against deep space | Space and deep dark themes |
+| **Linear Flow** | Smooth single-axis color drift and diffusion | Clean SaaS landing pages |
+| **Mesh** | Multi-node freeform deformation mesh gradient | Modern web apps, dashboard backgrounds |
+| **Mist** | Dense fog layers with low-contrast volumetric lighting | Mysterious, subtle backdrops |
+| **Pixel Glass** | Mosaic glass refractions causing geometric pixelation | Digital abstract art |
+| **Radial Glow** | Intense radial light scattering and energy points | Button glow highlights, callout focal points |
+| **Ribbon** | Dual-surface silky ribbon waves undulating in 3D space | Fluid and modern creative portfolios |
+| **Rise** | Upward thermal heat gradient lifting from the baseplate | Energetic and modern product showcases |
+| **Silk** | Satin fabric folds cascading over dark backgrounds | Fashion, lifestyle, and premium landing pages |
+| **Smear** | Long-exposure brush streaks and optical color shifts | Bold, dynamic design languages |
+| **Spectrum** | Prismatic light dispersion and rainbow wavelengths | Creative design studios |
+| **Swirl** | Centrifugal fluid vortex dynamics | Hypnotic, eye-catching visual showcases |
+| **Void** | Deep cosmic abyss and gravitational core absorption | Minimalist dark mode themes |
 
 ---
 
-## Stüdyo Editörü (Studio View)
+## Studio Editor (Studio View)
 
 <div align="center">
   <img src="docs/assets/studio-editor.png" width="94%" alt="Gradientfy Studio Editor Interface" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-  <p align="center"><em>▲ Stüdyo Editörü: Geniş canlı tuval, anlık zaman çizelgesi, hassas denetim paneli ve ergonomik alt bar</em></p>
+  <p align="center"><em>▲ Studio Editor: Expansive live canvas, real-time timeline scrubber, precision control panel, and ergonomic toolbar</em></p>
 </div>
 
-1. **Tuval Kontrolleri:** Üst sol kısımdan tam ekran ve en-boy oranlarını (16:9, 9:16, 1:1, 3:1) dinamik olarak değiştirebilirsiniz.
-2. **Harmonik Renk Üreticisi (Colours):** Renk teorisini kullanarak rastgele ama birbiriyle daima uyumlu (*analogous, triadic, complementary, split-complementary*) paletler üretir.
-3. **Cursor Warp:** Sadece gradient tuvali üzerindeyken farenin konumuna göre gradyanı organik bir şekilde büker; tuval dışına çıkıldığında merkez konuma yumuşakça sönümlenir.
-4. **Zaman Kontrolü:** Animasyonu duraklatabilir, zaman çizelgesi üzerinde saniyelik kare taraması yapabilirsiniz.
+1. **Canvas Controls:** Dynamically adjust full-screen and framing aspect ratios (16:9, 9:16, 1:1, 3:1) from the top-left toolbar.
+2. **Harmonic Color Generator (Colours):** Uses color theory to produce randomized yet mathematically harmonious (*analogous, triadic, complementary, split-complementary*) palettes.
+3. **Cursor Warp:** Organically distorts the gradient based on mouse position strictly when hovering over the canvas; smoothly dampens back to center when the cursor leaves.
+4. **Timeline Scrubber:** Pause the animation and scrub through frames second-by-second across the timeline.
 
 ---
 
-## Çoklu Çözünürlük ve Format Dışa Aktarımı
+## Multi-Resolution and Format Export
 
 <div align="center">
   <img src="docs/assets/export-modal.png" width="94%" alt="Gradientfy Multi-Resolution Export Modal" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-  <p align="center"><em>▲ Dışa Aktarım Modalı: 4K Ultra HD dahil çoklu cihaz profilleri ve kayıpsız format seçimi</em></p>
+  <p align="center"><em>▲ Export Modal: Multi-device presets including 4K Ultra HD and lossless format selection</em></p>
 </div>
 
-* **Tile-Based 8K WebGL Renderer:** GPU donanımınızın tek seferde render edemeyeceği 3840×2160 (4K) veya 7680×4320 (8K) boyutlarındaki görselleri quad-tile tekniğiyle parçalara bölerek sıfır bellek hatasıyla kusursuz oluşturur.
-* **Vektörel SVG:** Çözünürlükten bağımsız, sonsuz ölçeklenebilir ve Web standartlarına uygun SVG çıktısı.
-* **CSS & React Kod Çıktısı:** Tek tıkla kopyalanabilir ve projenize yapıştırılabilir temiz kod.
+* **Tile-Based 8K WebGL Renderer:** Slices massive images such as 3840×2160 (4K) or 7680×4320 (8K) into quad-tile segments that hardware GPUs might otherwise fail to render in a single pass, avoiding out-of-memory errors.
+* **Vector SVG:** Resolution-independent, infinitely scalable, and web-standards compliant SVG export.
+* **CSS & React Code Export:** One-click copyable and clean code ready to paste into your codebase.
 
 ---
 
-## 15 Küratörlü Koleksiyon Arşivi
+## 15 Curated Collections Archive
 
 <div align="center">
   <img src="docs/assets/curated-collections.png" width="94%" alt="Gradientfy Curated Collections" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-  <p align="center"><em>▲ 15 optik koleksiyon: Chrome, Soft Fold, Silk, Spectra, Beams, Long Exposure, Polar Night ve daha fazlası</em></p>
+  <p align="center"><em>▲ 15 optical collections: Chrome, Soft Fold, Silk, Spectra, Beams, Long Exposure, Polar Night, and more</em></p>
 </div>
 
-Gradientfy, tematik uyumluluk arayan tasarımcılar için 15 farklı konsept koleksiyonu sunar:
+Gradientfy offers 15 conceptual collections for designers seeking thematic consistency:
 `Chrome` • `Soft Fold` • `Silk` • `Spectra` • `Beams` • `Long Exposure` • `First Light` • `Polar Night` • `Nightside` • `Umbra` • `Halo` • `Orbit` • `Glass Block` • `Bitlight` • `Evergreen`.
 
 ---
 
-## Mimari & Çalışma Prensibi
+## Architecture & How It Works
 
 ```mermaid
 flowchart TD
-    A["Kullanıcı Etkileşimi (Katalog, Stüdyo, URL Paylaşımı)"] --> B["Oturum Yönetimi & State Senkronizasyonu (sessionStorage)"]
-    B --> C["OKLab Renk Algılama & Normalizasyon Motoru"]
+    A["User Interaction (Catalog, Studio, URL Sharing)"] --> B["Session Management & State Sync (sessionStorage)"]
+    B --> C["OKLab Color Perception & Normalization Engine"]
     
-    C --> D1["WebGPU Motoru (WGSL Shaders - 60 FPS)"]
-    C --> D2["WebGL2 Fallback Motoru (GLSL Shaders - 60 FPS)"]
+    C --> D1["WebGPU Engine (WGSL Shaders - 60 FPS)"]
+    C --> D2["WebGL2 Fallback Engine (GLSL Shaders - 60 FPS)"]
     C --> D3["2D Canvas Display (Context Leasing & Memory Safety)"]
     
-    D1 --> E["Canlı Tuval & Cursor Warp Dinamiği"]
+    D1 --> E["Live Canvas & Cursor Warp Dynamics"]
     D2 --> E
     D3 --> E
     
-    E --> F1["Canlı Stüdyo İnceleme & Harmonik Palet Üretimi"]
-    E --> F2["Quad-Tile Tiled Renderer (4K / 8K Kayıpsız Çıktı)"]
-    E --> F3["SVG Vektör / Video / React Bileşen İhracatı"]
+    E --> F1["Live Studio Inspection & Harmonic Palette Generation"]
+    E --> F2["Quad-Tile Tiled Renderer (4K / 8K Lossless Export)"]
+    E --> F3["SVG Vector / Video / React Component Export"]
 ```
 
 ---
 
-## Hızlı Başlangıç & Kurulum
+## Quick Start & Installation
 
-### Gereksinimler
-- **Node.js:** v18+ (Önerilen: v20 veya v22 LTS)
-- **Tarayıcı:** WebGL2 veya WebGPU destekli modern bir tarayıcı (Chrome, Edge, Brave, Firefox, Safari)
+### Prerequisites
+- **Node.js:** v18+ (Recommended: v20 or v22 LTS)
+- **Browser:** Modern browser with WebGL2 or WebGPU support (Chrome, Edge, Brave, Firefox, Safari)
 
-### 1. Depoyu Klonlayın
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/omerfys/Gradientfy.git
 cd Gradientfy
 ```
 
-### 2. Bağımlılıkları Yükleyin
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### 3. Geliştirme Sunucusunu Başlatın
+### 3. Start Development Server
 ```bash
 npm run dev
 ```
-Uygulama yerel olarak `http://localhost:3030` adresinde çalışacaktır.
+The application will run locally at `http://localhost:3030`.
 
-### 4. Üretim Sürümü (Build)
+### 4. Production Build
 ```bash
 npm run build
 npm run preview
@@ -209,52 +212,40 @@ npm run preview
 
 ---
 
-## Klavye Kısayolları
+## Keyboard Shortcuts
 
-| Tuş | Eylem |
+| Key | Action |
 | :--- | :--- |
-| <kbd>Space</kbd> | Stüdyo editöründe anlık rastgele renk ve tohum karıştırma (Shuffle) |
-| <kbd>Ctrl</kbd> + <kbd>Z</kbd> | Son parametre veya renk değişikliğini geri al (Undo) |
-| <kbd>Ctrl</kbd> + <kbd>Y</kbd> | İleri al (Redo) |
+| <kbd>Space</kbd> | Instant random color and seed shuffle in Studio editor |
+| <kbd>Ctrl</kbd> + <kbd>Z</kbd> | Undo last parameter or color modification |
+| <kbd>Ctrl</kbd> + <kbd>Y</kbd> | Redo modification |
 
 ---
 
-## Sıkça Sorulan Sorular (FAQ)
+## Frequently Asked Questions (FAQ)
 
 <details>
-<summary><strong>1. WebGPU desteklemeyen cihazlarda çalışır mı?</strong></summary>
-Evet. Gradientfy çift katmanlı bir gölgelendirici mimarisine sahiptir. Sisteminizde WebGPU mevcut değilse motor otomatik olarak WebGL2 moduna geçer. Her iki mod da aynı yüksek çözünürlüğü ve akıcılığı sunar.
+<summary><strong>1. Does it work on devices without WebGPU support?</strong></summary>
+Yes. Gradientfy features a dual-layer shader architecture. If WebGPU is unavailable on your system, the engine automatically falls back to WebGL2 mode. Both modes deliver the same high resolution and fluid performance.
 </details>
 
 <details>
-<summary><strong>2. Sayfayı yenilediğimde (F5) seçtiğim gradyan kaybolur mu?</strong></summary>
-Hayır. Gradientfy tüm oturum durumunu, seçtiğiniz gradyanı ve üzerinde yaptığınız renk/şekil değişikliklerini anlık olarak kaydeder. F5 attığınızda en son düzenlediğiniz gradyanla kaldığınız yerden devam edersiniz.
+<summary><strong>2. Will my selected gradient be lost if I refresh the page (F5)?</strong></summary>
+No. Gradientfy continuously persists session state, your selected gradient, and all color/geometry modifications. When you refresh with F5, you pick up right where you left off.
 </details>
 
 <details>
-<summary><strong>3. İndirilen görsellerde filigran (watermark) var mı?</strong></summary>
-Kesinlikle hayır. Gradientfy üzerinden dışa aktarılan tüm PNG, WebP, SVG ve video dosyaları %100 temiz ve filigransızdır.
+<summary><strong>3. Are downloaded media files watermarked?</strong></summary>
+Absolutely not. All PNG, WebP, SVG, and video files exported from Gradientfy are 100% clean and watermark-free.
 </details>
 
 ---
 
-## English Overview
+## License & Author
 
-**Gradientfy** is an open-source, next-generation GPU gradient engine and interactive studio built with WebGPU, WebGL2, React 19, and TailwindCSS v4. Featuring 22 mathematical shader models, 207 precision presets, and OKLab color-space interpolation, it turns mundane linear gradients into living, interactive digital artworks.
+This project is open-source under the [MIT License](LICENSE).
 
-### Key Highlights:
-- **Perceptual OKLab Color Space:** Eliminates muddy, desaturated gray dead zones commonly found in traditional sRGB transitions.
-- **22 Mathematical Shader Engines:** Aurora ribbons, chromatic liquid metal, retro Bayer dithering, optical glass refractions, and cosmic nebulas.
-- **Precision Studio Editor:** Real-time color tuning, harmonic palette generator, scoped cursor warp physics, and unlimited undo/redo.
-- **Quad-Tile 8K Export:** Generates crystal-clear 4K and 8K wallpapers, vector SVGs, 60 FPS WebM/MP4 loops, and production-ready React components with zero watermarks.
+Developer: **[@omerfys](https://github.com/omerfys)**  
+GitHub Repository: [https://github.com/omerfys/Gradientfy](https://github.com/omerfys/Gradientfy)
 
----
-
-## Lisans & Yazar
-
-Bu proje [MIT Lisansı](LICENSE) altında açık kaynak olarak sunulmuştur.
-
-Geliştirici: **[@omerfys](https://github.com/omerfys)**  
-GitHub Deposu: [https://github.com/omerfys/Gradientfy](https://github.com/omerfys/Gradientfy)
-
-**Projeyi beğendiyseniz GitHub üzerinden yıldız vermeyi unutmayın!**
+**If you like this project, don't forget to star it on GitHub!**
