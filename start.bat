@@ -1,29 +1,19 @@
 @echo off
-title Gradientfy - 207 Live GPU Gradients App
+title Gradientfy
 cd /d "%~dp0"
-color 0B
 
-echo ============================================================
-echo           GRADIENTFY - 207 GPU GRADIENTS STUDIO
-echo ============================================================
-echo.
-echo Checking environment...
-
-:: Check if Node.js is installed
+:: Check Node.js
 where node >nul 2>nul
 if %errorlevel% neq 0 (
-    echo [Notice] Node.js not detected in PATH. Checking Python...
     where python >nul 2>nul
     if %errorlevel% neq 0 (
-        echo [Error] Neither Node.js nor Python was found.
-        echo Please install Node.js from https://nodejs.org or Python.
+        echo Error: Neither Node.js nor Python was found.
+        echo Please install Node.js from https://nodejs.org
         pause
         exit /b 1
     )
-    
-    echo [OK] Using Python fallback server on port 3030...
     if not exist "dist\index.html" (
-        echo [Error] dist\ folder not found. Please build the app with Node.js first.
+        echo Error: dist folder not found.
         pause
         exit /b 1
     )
@@ -33,34 +23,27 @@ if %errorlevel% neq 0 (
     exit /b 0
 )
 
-:: Check if node_modules exists
+:: Install dependencies if missing
 if not exist "node_modules\" (
-    echo [Info] Installing dependencies...
+    echo Installing dependencies...
     call npm install
     if %errorlevel% neq 0 (
-        echo [Error] npm install failed.
+        echo Error: npm install failed.
         pause
         exit /b 1
     )
 )
 
-:: Check if dist exists
+:: Build project if dist is missing
 if not exist "dist\index.html" (
-    echo [Info] Building production bundle...
+    echo Building application...
     call npm run build
     if %errorlevel% neq 0 (
-        echo [Error] npm run build failed.
+        echo Error: Build failed.
         pause
         exit /b 1
     )
 )
 
-echo [OK] Launching Gradientfy server...
-echo.
 node server.js
-
-if %errorlevel% neq 0 (
-    echo.
-    echo Server exited with code %errorlevel%
-    pause
-)
+if %errorlevel% neq 0 pause

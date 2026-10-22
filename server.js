@@ -131,15 +131,15 @@ function startServer(portToTry) {
 
   server.listen(portToTry, '0.0.0.0', () => {
     const url = `http://localhost:${portToTry}`;
-    console.log('\n============================================================');
-    console.log('   \x1b[35m✨ GRADIENTFY — 207 GPU GRADIENTS STUDIO ✨\x1b[0m');
-    console.log('============================================================');
-    console.log(` 🌐 \x1b[32mApp is running live at:\x1b[0m \x1b[36m${url}\x1b[0m`);
-    console.log(' 🎨 Catalog: 207 Presets in 15 Collections');
-    console.log(' ⚡ Shader Engine: WebGL2 / WebGPU 60 FPS');
-    console.log(' 💾 Export: PNG, JPG, WebP, SVG, MP4, GIF, CSS & React');
-    console.log('============================================================');
-    console.log(' Press \x1b[33mCtrl+C\x1b[0m in this terminal to stop the server.\n');
+    console.log('\n------------------------------------------------------------');
+    console.log('  GRADIENTFY - 207 GPU GRADIENTS STUDIO');
+    console.log('------------------------------------------------------------');
+    console.log(`  App is running at: ${url}`);
+    console.log('  Catalog: 207 Presets in 15 Collections');
+    console.log('  Shader Engine: WebGL2 / WebGPU 60 FPS');
+    console.log('  Export: PNG, JPG, WebP, SVG, MP4, GIF, CSS & React');
+    console.log('------------------------------------------------------------');
+    console.log('  Press Ctrl+C to stop the server.\n');
 
     // Auto-open browser
     const startCmd = process.platform === 'win32' ? `start "" "${url}"` : process.platform === 'darwin' ? `open "${url}"` : `xdg-open "${url}"`;
