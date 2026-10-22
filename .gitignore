@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Binaries & Tools
+*.exe
+cloudflared.exe
+
+# Temporary test images & scrapers
+check_*.png
+check_*.webp.png
+corner_*.png
+orig_*.png
+test_*.webp
+test_*.svg
+watermark_area.png
+
+# Environment & Logs
+.env*
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

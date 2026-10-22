@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --f-display: 'Mona Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --f-mono: 'JetBrains Mono', monospace;
+  --bg-ground: #06080d;
+  --bg-surface: #0c101b;
+  --bg-elevated: #111726;
+  --text-ink: #f4f4f7;
+  --text-muted: #868c9f;
+  --line-hairline: rgba(255, 255, 255, 0.08);
+  --line-hover: rgba(255, 255, 255, 0.18);
+  --accent-yellow: #f59e0b;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-ground);
+    color: var(--text-ink);
+    font-family: var(--f-display);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+    overflow-x: hidden;
+  }
+
+  .font-mono, code, kbd, pre {
+    font-family: var(--f-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Premium Gradient Yellow Button (Zero colored glow) */
+.btn-gradient-yellow {
+  background: linear-gradient(180deg, #fffde6 0%, #fef08a 22%, #facc15 55%, #eab308 100%);
+  color: #000000 !important;
+  font-weight: 700;
+  border: 1px solid rgba(254, 240, 138, 0.85);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), inset 0 1px 1.5px rgba(255, 255, 255, 0.95);
+  transition: all 0.15s ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-gradient-yellow:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #fef08a 25%, #fde047 58%, #eab308 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 2px #ffffff;
+  transform: translateY(-1px);
+  filter: none;
+}
+
+.btn-gradient-yellow:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+  filter: none;
+}
+
+/* Shimmer Light Ray Animation */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(150%) skewX(-15deg);
+  }
+}
+
+.shimmer-ray {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.02) 20%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.02) 80%,
+    transparent 100%
+  );
+  animation: shimmerSweep 2.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+/* Traveling Energy Pulse along the V aperture rays */
+@keyframes rayEnergyFlow {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(160%);
+    opacity: 0;
+  }
+}
+
+.animate-ray-pulse {
+  animation: rayEnergyFlow 2.6s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Sparse micro particles gentle floating */
+@keyframes floatMicro1 {
+  0%, 100% { transform: translate(0, 0); opacity: 0.25; }
+  50% { transform: translate(14px, -20px); opacity: 0.65; }
+}
+
+@keyframes floatMicro2 {
+  0%, 100% { transform: translate(0, 0); opacity: 0.35; }
+  50% { transform: translate(-18px, 16px); opacity: 0.8; }
+}
+
+@keyframes floatMicro3 {
+  0%, 100% { transform: translate(0, 0); opacity: 0.2; }
+  50% { transform: translate(10px, 18px); opacity: 0.5; }
+}
+
+.animate-float-1 {
+  animation: floatMicro1 7s infinite ease-in-out;
+}
+
+.animate-float-2 {
+  animation: floatMicro2 9s infinite ease-in-out;
+}
+
+.animate-float-3 {
+  animation: floatMicro3 8.5s infinite ease-in-out;
+}
+
+/* Hairline Grid & Crosshair markers */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.crosshair-corner {
+  position: relative;
+}
+.crosshair-corner::before {
+  content: "+";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+/* Custom smooth dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #06080d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27200e;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d3012;
+}
+
+/* Clean chip strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
